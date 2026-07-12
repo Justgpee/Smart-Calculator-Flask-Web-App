@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quadratic Solver</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    
+    <div class="card">
+        <h1>Quadratic Solver</h1>
+
+        <p class="subtitle">Solve ax² + bx + c = 0</p>
+
+        <form method="POST">
+
+            <!-- three fixed inputs — always required,
+                  a, b, c → request.form["a"], ["b"], ["c"] in app.py -->
+            <label>a (coefficient of x²)</label>
+            <input type="number" step="any" name="a" required>
+
+            <label>b (coefficient of x)</label>
+            <input type="number" step="any" name="b" required>
+
+            <label>c (constant)</label>
+            <input type="number" step="any" name="c" required>
+
+            <button type="submit">Solve</button>
+        </form>
+
+        {% if result is not none %}
+            <div class="result-box">Result: {{ result }}</div>
+        {% endif %}
+
+        <div class="nav">
+            <a href="/">Arithmetic Calculator</a>
+            <a href="/area">Area Calculator</a>
+        </div>
+    </div>
+</body>
+</html>

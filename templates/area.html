@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Area Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="card">
+        <h1>Area Calculator</h1>
+        <p class="subtitle">Select a shape and fill in its measurements</p>
+
+        <form method="POST">
+
+            <label>Select Shape</label>
+            <select name="shape">
+                <option value="rectangle">Rectangle</option>
+                <option value="square">Square</option>
+                <option value="triangle">Triangle</option>
+                <option value="circle">Circle</option>
+            </select>
+
+            <!-- input group — app.py reads only inputs matching selected shape
+                 and leaves other shape inputs empty -flask ignores them -->
+            <p class="section-label">Rectangle</p>
+            <input type="number" step="any" name="length" placeholder="Length">
+            <input type="number" step="any" name="width" placeholder="Width">
+
+            <p class="section-label">Square</p>
+            <input type="number" step="any" name="side" placeholder="Side">
+
+            <p class="section-label">Triangle</p>
+            <input type="number" step="any" name="base" placeholder="Base">
+            <input type="number" step="any" name="height" placeholder="Height">
+
+            <p class="section-label">Circle</p>
+            <input type="number" step="any" name="radius" placeholder="Radius">
+
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if result is not none %}
+            <div class="result-box">Result: {{ result }}</div>
+        {% endif %}
+
+        <div class="nav">
+            <a href="/">Arithmetic Calculator</a>
+            <a href="/quadratic">Quadratic Solver</a>
+        </div>
+    </div>
+</body>
+</html>
