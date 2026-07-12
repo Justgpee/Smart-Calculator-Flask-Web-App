@@ -132,4 +132,4 @@ Flask connects HTML and Python through three handshakes:
 
 # Author
 
-Dominic Anagor — AI Engineering Student
+Dave Nduka — AI Engineering Student
